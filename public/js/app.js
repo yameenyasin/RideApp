@@ -14,7 +14,7 @@ angular
   ])
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider
-            .when('/', {
+            .when('/home', {
                 templateUrl: '/partials/main.html'
                 //controller: 'MainCtrl',
                 //controllerAs: 'main'
@@ -50,7 +50,7 @@ angular
                // controllerAs: 'createride'
             })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/login'
             });
 
     });
