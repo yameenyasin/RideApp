@@ -10,9 +10,11 @@
  */
 angular
     .module('rideShareAppApp', [
-    'ngRoute'
+    'ngRoute',
+    'validationService',
+    'webService'
   ])
-    .config(function ($routeProvider, $locationProvider) {
+.config(function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/home', {
                 templateUrl: '/partials/main.html'
@@ -25,13 +27,13 @@ angular
                 //controllerAs: 'about'
             })
             .when('/signup', {
-                templateUrl: '/partials/signup.html'
-                //controller: 'SignupCtrl',
+                templateUrl: '/partials/signup.html',
+                controller: 'SignupCtrl'
                 //controllerAs: 'signup'
             })
             .when('/login', {
-                templateUrl: '/partials/login.html'
-                //controller: 'LoginCtrl',
+                templateUrl: '/partials/login.html',
+                controller: 'LoginCtrl',
                 //controllerAs: 'login'
             })
             .when('/bookride', {
@@ -53,4 +55,8 @@ angular
                 redirectTo: '/login'
             });
 
-    });
+    })
+
+.controller("mainAppCtrl",function($rootScope){
+    $rootScope.isAuthenticated = false;
+});

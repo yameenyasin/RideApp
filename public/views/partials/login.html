@@ -4,10 +4,10 @@
             <h2>Please Sign In</h2>
             <hr class="colorgraph">
             <div class="form-group">
-                <input name="user_id" type="text" id="user_id" class="form-control input-lg" placeholder="Email Address">
+                <input name="user_id" type="text" id="user_id" class="form-control input-lg" placeholder="Email Address" ng-model="user.email">
             </div>
             <div class="form-group">
-                <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+                <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" ng-model="user.password">
             </div>
             <span class="button-checkbox">
           <button type="button" class="btn" data-color="info">Remember Me</button><!-- Additional Option -->
@@ -15,7 +15,7 @@
           <hr class="colorgraph">
           <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6">
-              <input type="submit" name="Submit" value="Login" class="btn btn-lg btn-success btn-block">
+              <input type="button" name="Login" value="Login" class="btn btn-lg btn-success btn-block" ng-click="doLogin(user);">
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6"> <a href="#/signup" class="btn btn-lg btn-primary btn-block">Sign Up</a> </div>
           </div>
