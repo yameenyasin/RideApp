@@ -36,24 +36,24 @@ module.exports = function (app) {
     });
     
     // sample api route
-    app.get('/api/login/:user', function (req, res) {
+    app.get('/api/login', function (req, res) {
         
-        console.log(req.params);
         var isValid = false, response = {};
-        var email = req.body.email;
-        var password = req.body.password;
+        var email = req.query.email;
+        var password = req.query.password;
         
         User.find({email: email,password:password }, function (err, docs) {
-          // docs is an array
-            isValid = true;
+          if (err || docs.length === 0){
+              console.log("error occured");
+              return res.status(404).json({message:"Invalid Credentials"});
+              
+          }
+          else{
+              console.log(docs);
+              return res.status(200).json({data:docs});
+          }
+            
         });
-        
-        if(isValid){
-            response = {status:200,message:"success"};
-        }else{
-            response = {status:505,message:"invalid credentials"};
-        }
-        res.json(response);
         
     });
 
