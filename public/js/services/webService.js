@@ -27,11 +27,23 @@ angular.module("webService",[])
     
     //. for creating the new ride
     this.createRide = function(postData,callback,errcallback){
-       
+        postData.avlSeats =  postData.totalCapacity;
         $http({
             method:'POST',
             data:postData,
             url:"/api/newride"
+        }).then(callback,errcallback);
+        
+        
+    };
+    
+     // for searching a ride
+    this.searchRide = function(params,callback,errcallback){
+       
+        $http({
+            method:'GET',
+            params:params,
+            url:"/api/seacrhride"
         }).then(callback,errcallback);
         
         

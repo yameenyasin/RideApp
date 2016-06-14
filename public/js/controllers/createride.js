@@ -8,14 +8,14 @@
  * Controller of the rideShareAppApp
  */
 angular.module('rideShareAppApp')
-  .controller('CreaterideCtrl', function ($scope,baseService) {
+  .controller('CreaterideCtrl', function ($scope,baseService,$rootScope) {
     
     $scope.isError = false;
     $scope.isSuccess = false;
     
     $scope.createRide = function(rideDetails){
-        rideDetails.toAddress.gm_accessors_.place.Od.formattedPrediction
         var newRideDetails = {
+            userId: $rootScope.loggedInUser._id,
             placeFrom: rideDetails.toAddress.gm_accessors_.place.Od.formattedPrediction,
             placeTo  : rideDetails.fromAddress.gm_accessors_.place.Od.formattedPrediction,
             tripDate : rideDetails.tripDate,

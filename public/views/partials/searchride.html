@@ -1,1 +1,60 @@
-<p>This is the searchride view.</p>
+<div class="row">
+
+    <div class="alert alert-danger" role="alert" ng-if="isError">Failed to create a new ride.</div>
+
+    <div class="alert alert-success" role="alert" ng-if="isSuccess">Ride Created Successfully</div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <fieldset>
+            <h2>Search is just one click away !</h2>
+            <hr class="colorgraph">
+
+            <div class="form-group col-md-6">
+                <input name="rideFrom" type="text" id="rideFrom" class="form-control input-lg" placeholder="Enter from Address" ng-model="ride.fromAddress" gm-places-autocomplete>
+            </div>
+
+            <div class="form-group col-md-6">
+                <input name="rideTo" type="text" id="rideTo" class="form-control input-lg" placeholder="Enter To Address" ng-model="ride.toAddress" gm-places-autocomplete>
+            </div>
+
+            <div class="form-group col-md-6">
+                <input name="tripDate" type="date" id="tripDate" class="form-control input-lg" placeholder="Enter Date" ng-model="ride.tripDate">
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <input type="button" name="searchRide" value="Search Ride" class="btn btn-lg btn-success btn-block" ng-click="doSearch(ride);">
+            </div>
+
+
+        </fieldset>
+        <!--</form>-->
+    </div>
+
+    <div class="col-md-12">
+
+        <table class="table">
+            <caption>Search Results</caption>
+            <thead>
+                <tr>
+                    <th>Trip From</th>
+                    <th>Trip To</th>
+                    <th>Trip date</th>
+                    <th>Seats Available</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in searchResults">
+                    <td>{{item.place_from}}</td>
+                    <td>{{item.place_to}}</td>
+                    <td>{{item.trip_date}}</td>
+                    <td>{{item.avl_seats}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+</div>

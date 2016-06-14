@@ -62,6 +62,7 @@ module.exports = function (app) {
     // create a new ride
     app.post('/api/newride', function (req, res) {
         var new_ride = new Ride({
+                user_id : req.body.userId,
                 place_from:req.body.placeFrom,
                 place_to  :req.body.placeTo,
                 trip_date :req.body.tripDate,
@@ -78,6 +79,35 @@ module.exports = function (app) {
         
         
     });
+    
+    // search ride service
+    app.get('/api/seacrhride', function (req, res) {
+        
+        console.log("Search Service Called");
+        
+        var place_from = req.query.placeFrom;
+        var place_to = req.query.placeTo;
+        //var trip_date = req.query.tripDate;
+        
+        
+        Ride.find({place_from: place_from,place_to:place_to  }, function (err, docs) {
+          if (err){
+              console.log("error occured");
+              return res.status(404).json({message:"Invalid Credentials"});
+              
+          }else if(docs.length === 0){
+              return res.status(205).json({message:"No matche found"});
+          }
+          else{
+              console.log(docs);
+              return res.status(200).json({data:docs});
+          }
+            
+        });
+        
+    });
+    
+    
 
     
     

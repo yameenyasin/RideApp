@@ -19,6 +19,8 @@ angular.module('rideShareAppApp')
             console.log(data);
             $scope.loginError = false;
             $rootScope.isAuthenticated = true;
+            $rootScope.loggedInUser = data.data.data[0];
+            console.log($rootScope.loggedInUser);
             $location.url("/home");
         },function(err){
            console.log("error occured"); 

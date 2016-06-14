@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 // define our user model
 // module.exports allows us to pass this to other files when it is called
 module.exports = mongoose.model('rideModel', {
+    user_id:{type : String, default: ''},
     place_from: {type : String, default: ''},
     place_to  : {type : String, default: ''},
     trip_date : {type : String, default: ''},

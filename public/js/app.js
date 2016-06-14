@@ -43,8 +43,8 @@ angular
                // controllerAs: 'bookride'
             })
             .when('/searchride', {
-                templateUrl: 'partials/searchride.html'
-                //controller: 'SearchrideCtrl',
+                templateUrl: 'partials/searchride.html',
+                controller: 'SearchrideCtrl'
                // controllerAs: 'searchride'
             })
             .when('/createride', {
@@ -60,4 +60,5 @@ angular
 
 .controller("mainAppCtrl",function($rootScope){
     $rootScope.isAuthenticated = false;
+    $rootScope.loggedInUser = null;
 });
