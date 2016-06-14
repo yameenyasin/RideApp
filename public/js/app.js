@@ -12,7 +12,8 @@ angular
     .module('rideShareAppApp', [
     'ngRoute',
     'validationService',
-    'webService'
+    'webService',
+    'gm'
   ])
 .config(function ($routeProvider, $locationProvider) {
         $routeProvider
@@ -47,8 +48,8 @@ angular
                // controllerAs: 'searchride'
             })
             .when('/createride', {
-                templateUrl: 'partials/createride.html'
-                //controller: 'CreaterideCtrl',
+                templateUrl: 'partials/createride.html',
+                controller: 'CreaterideCtrl'
                // controllerAs: 'createride'
             })
             .otherwise({

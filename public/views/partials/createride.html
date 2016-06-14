@@ -1,1 +1,60 @@
-<p>This is the createride view.</p>
+<div class="row">
+
+        <div class="alert alert-danger" role="alert" ng-if="isError">Failed to create a new ride.</div>
+    
+        <div class="alert alert-success" role="alert" ng-if="isSuccess">Ride Created Successfully</div>
+    
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <fieldset>
+            <h2>Create a New Ride</h2>
+            <hr class="colorgraph">
+
+            <div class="form-group col-md-6">
+                <input name="rideFrom" type="text" id="rideFrom" class="form-control input-lg" placeholder="Enter from Address" ng-model="ride.fromAddress" gm-places-autocomplete>
+            </div>
+
+            <div class="form-group col-md-6">
+                <input name="rideTo" type="text" id="rideTo" class="form-control input-lg" placeholder="Enter To Address" ng-model="ride.toAddress" gm-places-autocomplete>
+            </div>
+
+            <div class="form-group col-md-6">
+                <input name="tripDate" type="date" id="tripDate" class="form-control input-lg" placeholder="Enter Date" ng-model="ride.tripDate">
+            </div>
+
+            <div class="form-group col-md-6">
+                <input name="totalCapacity" type="number" id="totalCapacity" class="form-control input-lg" placeholder="Total Capacity" ng-model="ride.totalCapacity">
+            </div>
+
+            <div class="form-group col-md-6">
+                <input name="carType" type="text" id="carType" class="form-control input-lg" placeholder="Enter the type of car" ng-model="ride.carType">
+            </div>
+
+            <div class="form-group col-md-6">
+                <input name="carNo" type="text" id="carNo" class="form-control input-lg" placeholder="Enter the vcar number eg MH01BX-1234" ng-model="ride.carNo">
+            </div>
+
+            <div class="form-group col-md-6">
+                <input name="phoneNo" type="text" id="phoneNo" class="form-control input-lg" placeholder="Phone No" ng-model="ride.phoneNo">
+            </div>
+
+
+
+
+
+
+
+        <span class="button-checkbox col-md-12">
+          <hr class="colorgraph">
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <input type="button" name="createRide" value="Create Ride" class="btn btn-lg btn-success btn-block" ng-click="createRide(ride);">
+            </div>
+               <div class="col-xs-6 col-sm-6 col-md-6">
+              <input type="button" name="Reset" value="Reset" class="btn btn-lg btn-active btn-block">
+            </div>
+           
+          </div>
+        </span></fieldset>
+        <!--</form>-->
+    </div>
+</div>
