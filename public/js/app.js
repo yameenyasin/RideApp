@@ -58,7 +58,23 @@ angular
 
     })
 
-.controller("mainAppCtrl",function($rootScope){
+.controller("mainAppCtrl",function($rootScope,$scope){
+    $scope.isActive = function (viewLocation) {
+     var active = (viewLocation === $location.path());
+     return active;
+    };
+
+    $scope.hideMe = function ()
+        {
+            if(!($location.path()==="/searchride" || $location.path()==="/createride" || $location.path==="/bookride")){
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+     
+        };
     $rootScope.isAuthenticated = false;
     $rootScope.loggedInUser = null;
 });
